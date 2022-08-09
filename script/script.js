@@ -55,7 +55,7 @@ let player = {
   goldCollected: 0, 
   killCount: 0
 }
-player.goldCollected = 1000; 
+// player.goldCollected = 1000; 
 // heroes will be 
 // hero list Crono, Lucca, Marle, Frog, Robo, Ayla, Magus, Spekkio, Schala, Melchior, Gaspar
 let heroes = [
@@ -159,7 +159,7 @@ setInterval(() => {
   if(!enemyInTheField){
     console.log('False || Generate new enemy');
     enemyInTheField = true; 
-    enemy = new Enemy("Random", 10,  1); 
+    enemy = new Enemy("Random", 20,  1); 
     console.log('hi')
     // enemy = new Enemy("Random", x=Math.floor(Math.random()*20),  1); 
   }else if(enemyInTheField && enemy.hp <= 0){
