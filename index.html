@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+  <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+  <link rel="stylesheet" href="css/style.css">
+  <title>Click!</title>
+</head>
+<body>
+  <h1>Chrono Trigger : Incremental game</h1>
+
+  <section class="game">
+    <!-- ################## enemy screen -->
+    <div class="enemyZone zoneClass">
+      <p>enemy area</p>
+      <div class="enemyPicture clickButton"></div>
+      <p>name: enemy</p>
+      <div class="enemyHpC">
+        <p class="enemyHpData">-</p>
+        <span class="percent"></span>
+      </div>
+    </div>
+
+    <!-- ################## action screen -->
+    <div class="actionZone zoneClass">
+      <p>actions area</p>
+      <!-- <button class="clickButton">click</button> -->
+      <!-- <button name="addButton">add damage</button> -->
+      <!-- <button name="addAuto">add auto damage</button> -->
+    </div>
+
+    <!-- ################## hero screen -->
+    <div class="heroes zoneClass">
+      <!-- Crono -->
+      <div class="hero crono">
+        <button class="unlock">Unlock</button>
+        <p>Crono</p>
+        <button class="heroLvlUp">lvlup</button>
+        <p class="heroesLvlText" >Level: -</p> 
+        <p class="heroesDps">Dps: -</p>
+        <p class="heroesGold">Gold: -</p>
+      </div>
+      <!-- Lucca -->
+      <div class="hero crono">
+        <button class="unlock">Unlock</button>
+        <p>Lucca</p>
+        <button class="heroLvlUp">lvlup</button>
+        <p class="heroesLvlText" >Level: -</p> 
+        <p class="heroesDps">Attack: -</p>
+        <p class="heroesGold">Gold: -</p>
+      </div>
+    </div>
+  </section>
+  <section class="stats zoneClass">
+    <p>current stats: </p>
+    <ul>
+      <li name="infoDamage">current dmg: 1</li>
+      <li class="infoDps">current dps:</li>
+      <li name="infoGold">current gold: 0</li>
+    </ul>
+  </section>
+  <footer>
+    <p>Create by Matteo 'Gand988' Zanda - <a href="https://gand988.github.io/portfolio/">Portfolio</a></p>
+  </footer>
+  <!-- <section class="information">
+    <p>information</p>
+    <ul>
+      <li>need 100 = add 0.5 damage on click</li>
+      <li>need 1000 = add 0.1 damage on autoclick</li>
+    </ul>
+  </section> -->
+  <script src="script/script.js"></script>
+  <!-- <script src="script/testing.js"></script> -->
+</body>
+</html>
