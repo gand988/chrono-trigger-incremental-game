@@ -1,8 +1,47 @@
 body{
   background-color: #004369;
   color: #E5DDC8; 
+  font-family: 'Lato', sans-serif;
+}
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #01949A #004369;
 }
 
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #004369;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #01949A;
+  border-radius: 10px;
+  border: 3px solid #004369;
+}
+
+main{
+  display: flex; 
+  flex-direction: row; 
+  width: 100%;
+  justify-content: center;
+  /* align-items: center;  */
+}
+.left{
+  width: 30%;
+}
+.heroes{
+  height: 500px; 
+  overflow-y: scroll;
+}
+.center{
+  width: 70%; 
+}
 .zoneClass{
   padding: 5px;
   border: 2px solid #01949A;
@@ -24,7 +63,7 @@ body{
   margin-bottom: 5px;
   padding-left: 10px;
 }
-.unlock{
+.unlockButton{
   position: absolute;   
   right: 10px;
   top: 10px;  
@@ -50,4 +89,15 @@ p.enemyHpData{
   background-color: #DB1F48;
   transition: all .3s ease;
   z-index: -1;
+}
+
+
+/* 
+
+  debug
+
+*/
+
+.debug{
+  border: 1px solid #DB1F48;
 }

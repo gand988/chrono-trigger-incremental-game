@@ -1,0 +1,46 @@
+This is a journal to track the progress with the game. 
+
+[09/08/2022] ---- First deploy 
+
+First deploy on github and shared on discord server //todo
+
+[10/08/2022] ---- 
+
+Found a way to have a good DPS. 'setInterval' will be 1 second all the time and
+maybe sometimes it can change the speed. Trovare una soluzione per visualizzare
+i numeri che cambiano per cifra intera e non intervallo 
+
+[11/08/2022] ---- 
+
+Added: 
+  kill count in stats
+
+[14/08/2022] ---- 
+
+Createa new js file to remove useles stuff and make order on the things that
+i've done. 
+
+[15/08/2022] ---- 
+
+Today I learn that you can add /** */ before a function or a
+variable on js files and you can add a documentation. So when you hover the
+function/variable it will popup the Docs 
+
+  + New documentation before most of the functions 
+    note: it's important to have a good documentation for future review and for different people to work on. 
+
+[16/08/2022] ----
+
+  [x] Working on the DPS function. SOLUTION: remove the dps function and each level add the base dps...
+
+
+
+[17/08/2022] ----
+
+  Fixed: 
+    - dps 
+    - dps info per heroes -> just dps * level 
+  
+
+
+[] ----
