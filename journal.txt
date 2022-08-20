@@ -17,7 +17,7 @@ Added:
 
 [14/08/2022] ---- 
 
-Createa new js file to remove useles stuff and make order on the things that
+Created a new js file to remove useles stuff and make order on the things that
 i've done. 
 
 [15/08/2022] ---- 
@@ -33,14 +33,23 @@ function/variable it will popup the Docs
 
   [x] Working on the DPS function. SOLUTION: remove the dps function and each level add the base dps...
 
-
-
 [17/08/2022] ----
 
   Fixed: 
     - dps 
     - dps info per heroes -> just dps * level 
+    - unclock all heroes and make not have negative gold
+  Added: 
+    - New heroes 
+      List: Marle, Frog, Robo, Ayla, Magus, Spekkio, Schala, Melchior, Gaspar
   
+[18/08/2022] ----
 
+  Version: 00.00.10
+  Added:
+    - Versions 
+  Fixed: 
+    - fix a bug in the buy levelup. 
+    - animation bars
 
 [] ----

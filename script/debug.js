@@ -8,7 +8,8 @@ const unlockAllHeroes = document.querySelector('.unlockAllHeroes');
 
 unlockAllHeroes.addEventListener('click', ()=>{
   for(let i = 0; i < heroes.length; i++){
-    //unlockHero(i)
+    player.goldCollected += heroes[i].goldToUnlock;       // used to not have negative gold.
+    unlockHero(i);
   }
 })
 dbGold.addEventListener('click', ()=>{

@@ -1,3 +1,9 @@
+/*
+  Title         > Chrono Trigger : The incremental game. 
+  Author        > Matteo 'Gand988' Zanda
+  Current Ver.  > 00.00.10
+*/
+
 // DOM > initialize enemy picture 
 let click           = document.querySelector('.enemyPicture');    // click event on enemy portrait
 // DOM > initialize player stats 
@@ -8,6 +14,8 @@ const infoDps       = document.querySelector('.infoDps');         // text conten
 const infoGold      = document.querySelector('.infoGold');        // text content
 const infoKill      = document.querySelector('.infoKill');        // text content
 // DOM > initialize heroes stuff
+const heroPicture   = document.querySelectorAll('.heroPicture');  // text content
+const heroName      = document.querySelectorAll('.heroName');     // text content
 const heroGold      = document.querySelectorAll('.heroGold');     // Gold to levelup
 const heroLvlUp     = document.querySelectorAll('.heroLvlUp');    // button
 const unlockButton  = document.querySelectorAll('.unlockButton'); // button
@@ -16,10 +24,11 @@ const heroesLvlText = document.querySelectorAll('.heroesLvlText');      // text 
 // DOM > initialize enemy stuff
 const enemyName     = document.querySelector('.enemyName');       // text content
 const enemyHpData   = document.querySelector('.enemyHpData');     // text content
-const percent       = document.querySelector('.percent');         // enemy Hp bar behind the enemy hp value 'enemyHpData' 
+const animationBar  = document.querySelector('.animationBar');    // enemy Hp bar behind the enemy hp value 'enemyHpData' 
 
-let   enemy;                  // variable to create the enemy
-let   widthPer      = 100;    // width background animation bar enemy hp 
+let   enemy;                      // variable to create the enemy
+let   widthPer      = 100;        // width background animation bar enemy hp 
+enemy = new Enemy('-', 0, 0);
 
 /* 
   All the stats are here
@@ -36,9 +45,8 @@ let player = {
   exp: 0,
   clickDamage: 5, 
   dps: 0, 
-  // goldCollected: 0, 
-  goldCollected: 100, 
-  killCount: 0
+  goldCollected: 0, 
+  killCount: -1
 }
 /**
  * 
@@ -52,22 +60,121 @@ let heroes = [
     goldToUnlock: 10, 
     "hero": "Crono", 
     lvl: 1, 
-    dps: 0.5,
+    dps: 0.2,
     lvlUpGold: function x(){ return (this.goldToUnlock * this.lvl)*1.5},
-    test: this.lvl * this.atk
-    // todo : implement weapons
+    weapons: []
   }, 
   {
     "id": 1, 
     "active": false,
-    goldToUnlock: 20, 
+    goldToUnlock: 50, 
     "hero": "Lucca", 
+    lvl: 1, 
+    dps: 0.5,
+    lvlUpGold: function x(){ return (this.goldToUnlock * this.lvl)*1.5},
+    weapons: []
+  },
+  {
+    "id": 2,
+    "active": false, 
+    goldToUnlock: 100, 
+    "hero": "Marle",
     lvl: 1, 
     dps: 1,
     lvlUpGold: function x(){ return (this.goldToUnlock * this.lvl)*1.5},
-    test: this.lvl * this.atk
-    // todo : implement weapons
+    weapons: []
+  },
+  {
+    "id": 3,
+    "active": false, 
+    goldToUnlock: 150, 
+    "hero": "Frog",
+    lvl: 1, 
+    dps: 1.5,
+    lvlUpGold: function x(){ return (this.goldToUnlock * this.lvl)*1.5},
+    weapons: []
+  },
+  {
+    "id": 4,
+    "active": false, 
+    goldToUnlock: 200, 
+    "hero": "Robo",
+    lvl: 1, 
+    dps: 2,
+    lvlUpGold: function x(){ return (this.goldToUnlock * this.lvl)*1.5},
+    weapons: []
+  },
+  {
+    "id": 5,
+    "active": false, 
+    goldToUnlock: 250, 
+    "hero": "Ayla",
+    lvl: 1, 
+    dps: 2.5,
+    lvlUpGold: function x(){ return (this.goldToUnlock * this.lvl)*1.5},
+    weapons: []
+  },
+  {
+    "id": 6,
+    "active": false, 
+    goldToUnlock: 300, 
+    "hero": "Magus",
+    lvl: 1, 
+    dps: 3,
+    lvlUpGold: function x(){ return (this.goldToUnlock * this.lvl)*1.5},
+    weapons: []
+  },
+  {
+    "id": 7,
+    "active": false, 
+    goldToUnlock: 350, 
+    "hero": "Spekkio",
+    lvl: 1, 
+    dps: 3.5,
+    lvlUpGold: function x(){ return (this.goldToUnlock * this.lvl)*1.5},
+    weapons: []
+  },
+  {
+    "id": 8,
+    "active": false, 
+    goldToUnlock: 400, 
+    "hero": "Schala",
+    lvl: 1, 
+    dps: 4,
+    lvlUpGold: function x(){ return (this.goldToUnlock * this.lvl)*1.5},
+    weapons: []
+  },
+  {
+    "id": 9,
+    "active": false, 
+    goldToUnlock: 450, 
+    "hero": "Melchior",
+    lvl: 1, 
+    dps: 4.5,
+    lvlUpGold: function x(){ return (this.goldToUnlock * this.lvl)*1.5},
+    weapons: []
+  },
+  {
+    "id": 10,
+    "active": false, 
+    goldToUnlock: 500, 
+    "hero": "Gaspar",
+    lvl: 1, 
+    dps: 5,
+    lvlUpGold: function x(){ return (this.goldToUnlock * this.lvl)*1.5},
+    weapons: []
   }
+  // ,
+  // {
+  //   "id": 0,
+  //   "active": false, 
+  //   goldToUnlock: 0, 
+  //   "hero": "",
+  //   lvl: 1, 
+  //   dps: 0,
+  //   lvlUpGold: function x(){ return (this.goldToUnlock * this.lvl)*1.5},
+  //   weapons: []
+  // }
 ];
 
 for(let i= 0; i<heroLvlUp.length; i++){
@@ -78,14 +185,15 @@ for(let i= 0; i<heroLvlUp.length; i++){
       console.log(`Level: ${heroes[i].lvl} || DPS: ${heroes[i].dps * heroes[i].lvl} || Gold for next lvl: ${heroes[i].lvlUpGold()}`);
     }
   })
+  // heroes stuff
+  heroName[i].textContent        = `${heroes[i].hero}`; 
 }
 
 function heroLvlUpF(id){
   if(heroes[id].active){
     player.goldCollected -= heroes[id].lvlUpGold();
-    // playerDps(id);
     heroes[id].lvl++; 
-    player.dps += heroes[id].dps(heroes[id].lvl);
+    player.dps += heroes[id].dps;
     updateHeroes(id);
   }
 }
@@ -93,21 +201,19 @@ function heroLvlUpF(id){
  * Function that unlock the hero
  */
 
- function unlockHero(id){
+function unlockHero(id){
   heroes[id].active = true; 
   heroLvlUp[id].disabled = false; 
   player.goldCollected -= heroes[id].goldToUnlock; 
   unlockButton[id].style.display = 'none'; 
   // display stats hero
   updateHeroes(id);
-  // playerDps(id);
-  player.dps += heroes[id].dps(1);
+  player.dps += Math.round(heroes[id].dps * 100)/100;
   updateStats();
-  // heroLvlUp
 }
 function updateHeroes(id){
   heroGold[id].textContent        = `Gold: ${heroes[id].lvlUpGold()}`; 
-  heroDps[id].textContent         = `Dps: ${heroes[id].dps()}`;
+  heroDps[id].textContent         = `Dps: ${(Math.round(heroes[id].dps*100)/100) * heroes[id].lvl}`;
   heroesLvlText[id].textContent   = `Level: ${heroes[id].lvl}`;
 }
 for(let i=0; i<heroes.length; i++){
@@ -139,7 +245,13 @@ function Enemy(name, hp, gold){
   this.gold   = gold; 
 }
 function newEnemy(){
-  enemy = new Enemy('Blue Imp', 20, Math.floor(Math.random()*5));
+  if(enemy.hp <= 0){
+    widthPer = 0; 
+    player.goldCollected += enemy.gold; 
+    player.killCount++; 
+    enemy = new Enemy('Blue Imp', 20, Math.floor(Math.random()*5));
+    widthPer = 100; 
+  }
 }
 /**
  * Update most of the information on screen
@@ -164,9 +276,8 @@ function updateEnemyArea(){
  * Animation bar enemy hp
  * @param {number} crt 
  */
-function animationBar(crt){
-  widthPer -= (100*player.clickDamage+crt)/enemy.hpMax; 
-  percent.style.width = widthPer + '%'; 
+function updateAnimationBar(){
+  animationBar.style.width = widthPer + '%'; 
 }
 /**
  * Check if the gold collected is >= the gold that is needed to unlock the hero 
@@ -182,39 +293,58 @@ function checkForEnableHeroes(){
   }
 }
 
+function updateElements(){
+
+  setInterval(() => {
+    updateStats();
+    updateEnemyArea();
+    checkForEnableHeroes();
+    
+    updateAnimationBar()
+    if(enemy.hp <=0){
+      newEnemy();
+      widthPer = 100; 
+    }
+    // console.log('90millisecond')
+  }, 90);
+
+}
+
 
 // *********************************************** 
 // **            GAME START HERE!               ** 
 // ***********************************************
 
 newEnemy();         // create the enemy 
-updateEnemyArea();
-updateStats();
+updateElements();   // update elements with a interval of 90milliseconds
+
+function criticalDamage(){
+  let crit = 0; 
+  let x = Math.floor(Math.random()*5); 
+  if(x % 3 == 0){
+    crit = Math.floor(Math.random()*player.clickDamage)
+  }
+  return crit; 
+}
 
 /**
  * Event that will deal damange to the enemy
  */
 click.addEventListener('click', ()=>{
-  enemy.hp -= player.clickDamage;             // deal damage to the enemey
-  enemyHpData.textContent = `${enemy.hp} HP`; // update enemy hp on screen
-
-  if(enemy.hp <= 0){
-    // after each kill add : gold, killcount, exp, 
-    player.goldCollected += enemy.gold; 
-    player.killCount++; 
-    newEnemy(); 
-  }
-  updateStats();
-  console.log(`${enemy.hp} hp || ${player.clickDamage} dmg`)
+  let crit = criticalDamage(); 
+  enemy.hp -= player.clickDamage+crit;                      // deal damage to the enemey
+  widthPer -= (100*(player.clickDamage+crit))/enemy.hpMax; 
+  // console.log(`${enemy.hp} hp || ${player.clickDamage} dmg`)
 })
 
 
 
 setInterval(() => {
-  updateStats();
-  checkForEnableHeroes();
+  enemy.hp = Math.round((enemy.hp - player.dps)*100)/100; 
+  widthPer -= (100*(player.dps))/enemy.hpMax; 
 
-  console.log('interval')
+  // newEnemy();
+
 }, 1000);
 
 
