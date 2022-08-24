@@ -1,7 +1,7 @@
 /*
   Title         > Chrono Trigger : The incremental game. 
   Author        > Matteo 'Gand988' Zanda
-  Current Ver.  > 00.00.10
+  Current Ver.  > 00.01.50
 */
 
 // DOM > initialize enemy picture 
@@ -13,22 +13,25 @@ const infoDamage    = document.querySelector('.infoDamage');      // text conten
 const infoDps       = document.querySelector('.infoDps');         // text content
 const infoGold      = document.querySelector('.infoGold');        // text content
 const infoKill      = document.querySelector('.infoKill');        // text content
+const damageShow    = document.querySelector('.damageShow');      // the damage to the enemy
 // DOM > initialize heroes stuff
-const heroPicture   = document.querySelectorAll('.heroPicture');  // text content
+// const heroPicture   = document.querySelectorAll('.heroPicture');  // text content
+const hero          = document.querySelectorAll('.hero'); 
 const heroName      = document.querySelectorAll('.heroName');     // text content
 const heroGold      = document.querySelectorAll('.heroGold');     // Gold to levelup
+const heroDps       = document.querySelectorAll('.heroDps');      // text content
+const heroesLvlText = document.querySelectorAll('.heroesLvlText');// text content
 const heroLvlUp     = document.querySelectorAll('.heroLvlUp');    // button
 const unlockButton  = document.querySelectorAll('.unlockButton'); // button
-const heroDps       = document.querySelectorAll('.heroDps');      // text content
-const heroesLvlText = document.querySelectorAll('.heroesLvlText');      // text content
 // DOM > initialize enemy stuff
+const areaLevel     = document.querySelector('.areaLevel');       // text content
 const enemyName     = document.querySelector('.enemyName');       // text content
 const enemyHpData   = document.querySelector('.enemyHpData');     // text content
 const animationBar  = document.querySelector('.animationBar');    // enemy Hp bar behind the enemy hp value 'enemyHpData' 
 
 let   enemy;                      // variable to create the enemy
 let   widthPer      = 100;        // width background animation bar enemy hp 
-enemy = new Enemy('-', 0, 0);
+
 
 /* 
   All the stats are here
@@ -43,16 +46,19 @@ enemy = new Enemy('-', 0, 0);
 let player = {
   lvl: 1,
   exp: 0,
-  clickDamage: 5, 
+  clickDamage: 2, 
   dps: 0, 
   goldCollected: 0, 
-  killCount: -1
+  killCount: 0
 }
 /**
  * 
  * Hero list: 
  * Crono, Lucca, Marle, Frog, Robo, Ayla, Magus, Spekkio, Schala, Melchior, Gaspar
  */
+// class Heroes {
+
+// }
 let heroes = [
   {
     "id": 0, 
@@ -204,6 +210,7 @@ function heroLvlUpF(id){
 function unlockHero(id){
   heroes[id].active = true; 
   heroLvlUp[id].disabled = false; 
+  hero[id+1].style.display = 'block'; 
   player.goldCollected -= heroes[id].goldToUnlock; 
   unlockButton[id].style.display = 'none'; 
   // display stats hero
@@ -222,14 +229,6 @@ for(let i=0; i<heroes.length; i++){
   })
 }
 /**
- * Add heroes dps to the player
- * @param {number} id id of the hero that will be given inside a function
- */
-// function playerDps(id){
-//   player.dps += heroes[id].dps();
-//   console.log('playerDps ' + player.dps)
-// }
-/**
  * Documentation Enemy
  * hpMax is used on a formula for the animation bar
  * 
@@ -238,21 +237,85 @@ for(let i=0; i<heroes.length; i++){
  * @param {integer} gold enemy gold that will drop on death
  * 
  */
-function Enemy(name, hp, gold){
-  this.name   = name; 
-  this.hp     = hp; 
-  this.hpMax  = hp; 
-  this.gold   = gold; 
+// function Enemys(name, hp, gold){
+//   this.name   = name; 
+//   this.hp     = hp; 
+//   this.hpMax  = hp; 
+//   this.gold   = gold; 
+// }
+
+// TODO  fix the heroes to class + 
+const enemyList = [
+  'Blue Eaglet', 
+  'Green Imp',
+  'Roundillo', 
+  'Roundillo Rider',
+  'Blue Eaglet', 
+  'Green Imp',
+  'Blue Eaglet', 
+  'Green Imp',
+  'Roundillo', 
+  'Roundillo Rider'
+];
+/**
+ * Enemy 
+ * 
+ * 
+ */
+class Enemy{
+  constructor(hp){
+    this.name     = this.name(); 
+    // this.level    = level; 
+    this.hp       = hp; 
+    this.hpMax    = hp;
+    this.gold     = this.gold(); 
+    this.bossFlag = false; 
+  }
+  name(){
+    let random = Math.floor(Math.random()*enemyList.length);
+    return enemyList[random]; 
+  }
+  gold(){
+    // need a good formula for this
+    return Math.floor((this.hpMax * 20)/100) ;
+  }
 }
+let baseHp  = 10; 
+let areaLevelCounter  = 1; 
+let enemyCounter      = 0; 
+let internalCounter   = 0;
+
+enemy = new Enemy(baseHp);
+
 function newEnemy(){
   if(enemy.hp <= 0){
+    if(enemy.bossFlag){
+      enemy.bossFlag = false;
+      internalCounter = 0; 
+    }
     widthPer = 0; 
     player.goldCollected += enemy.gold; 
     player.killCount++; 
-    enemy = new Enemy('Blue Imp', 20, Math.floor(Math.random()*5));
+    enemyCounter++; 
+    internalCounter++; 
+    if(internalCounter%5 == 0){
+      baseHp = baseHp + Math.floor(((baseHp * 50)/100)); 
+    }
+    if(internalCounter % 11 == 0){
+      let temp = baseHp; 
+      temp = (temp * 250)/100; 
+      enemy = new Enemy(temp);
+      enemy.bossFlag = true; 
+      // console.log(enemy.hp);
+    }else{
+      enemy = new Enemy(baseHp)
+    }
+    console.log(`${enemy.hp} || ${enemyCounter} || ${internalCounter}`)
+    // enemy = new Enemy('Blue Imp', 20, Math.floor(Math.random()*5));
     widthPer = 100; 
   }
 }
+
 /**
  * Update most of the information on screen
  */
@@ -265,8 +328,20 @@ function updateStats(){
   infoKill.textContent    = `Current Kills:         ${player.killCount}`;
   
 }
+
 /**
- * Update enemy informatio on screen
+ * Update Area & level information on screen
+ */
+function updateAreaLevel(){
+  if(internalCounter%11 == 0 && internalCounter != 0){
+    areaLevel.textContent   = `Level: ${enemyCounter} - BOSS FIGHT!!!`;
+  }else{
+    areaLevel.textContent   = `Level: ${enemyCounter}`;
+  }
+}
+
+/**
+ * Update enemy information on screen
  */
 function updateEnemyArea(){
   enemyName.textContent   = `${enemy.name}`;
@@ -298,6 +373,7 @@ function updateElements(){
   setInterval(() => {
     updateStats();
     updateEnemyArea();
+    updateAreaLevel();
     checkForEnableHeroes();
     
     updateAnimationBar()
@@ -331,10 +407,16 @@ function criticalDamage(){
  * Event that will deal damange to the enemy
  */
 click.addEventListener('click', ()=>{
-  let crit = criticalDamage(); 
-  enemy.hp -= player.clickDamage+crit;                      // deal damage to the enemey
-  widthPer -= (100*(player.clickDamage+crit))/enemy.hpMax; 
-  // console.log(`${enemy.hp} hp || ${player.clickDamage} dmg`)
+  // debug One Kill
+  if(oneHitKill.checked){
+    enemy.hp = 0
+  }else{
+    let crit = criticalDamage(); 
+    damageShow.textContent = player.clickDamage+crit; 
+    enemy.hp -= player.clickDamage+crit;                      // deal damage to the enemey
+    widthPer -= (100*(player.clickDamage+crit))/enemy.hpMax; 
+    // console.log(`${enemy.hp} hp || ${player.clickDamage} dmg`)
+  }
 })
 
 
@@ -342,9 +424,6 @@ click.addEventListener('click', ()=>{
 setInterval(() => {
   enemy.hp = Math.round((enemy.hp - player.dps)*100)/100; 
   widthPer -= (100*(player.dps))/enemy.hpMax; 
-
-  // newEnemy();
-
 }, 1000);
 
 

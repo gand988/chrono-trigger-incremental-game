@@ -1,26 +1,26 @@
 This is a journal to track the progress with the game. 
 
-[09/08/2022] ---- First deploy 
+[09/08/2022] ------------------------------------------------------ [First deploy] 
 
 First deploy on github and shared on discord server //todo
 
-[10/08/2022] ---- 
+[10/08/2022] ------------------------------------------------------ []
 
 Found a way to have a good DPS. 'setInterval' will be 1 second all the time and
 maybe sometimes it can change the speed. Trovare una soluzione per visualizzare
 i numeri che cambiano per cifra intera e non intervallo 
 
-[11/08/2022] ---- 
+[11/08/2022] ------------------------------------------------------ []
 
 Added: 
   kill count in stats
 
-[14/08/2022] ---- 
+[14/08/2022] ------------------------------------------------------ []
 
 Created a new js file to remove useles stuff and make order on the things that
 i've done. 
 
-[15/08/2022] ---- 
+[15/08/2022] ------------------------------------------------------ []
 
 Today I learn that you can add /** */ before a function or a
 variable on js files and you can add a documentation. So when you hover the
@@ -29,11 +29,11 @@ function/variable it will popup the Docs
   + New documentation before most of the functions 
     note: it's important to have a good documentation for future review and for different people to work on. 
 
-[16/08/2022] ----
+[16/08/2022] ------------------------------------------------------ []
 
   [x] Working on the DPS function. SOLUTION: remove the dps function and each level add the base dps...
 
-[17/08/2022] ----
+[17/08/2022] ------------------------------------------------------ []
 
   Fixed: 
     - dps 
@@ -43,7 +43,7 @@ function/variable it will popup the Docs
     - New heroes 
       List: Marle, Frog, Robo, Ayla, Magus, Spekkio, Schala, Melchior, Gaspar
   
-[18/08/2022] ----
+[18/08/2022] ------------------------------------------------------ []
 
   Version: 00.00.10
   Added:
@@ -52,4 +52,32 @@ function/variable it will popup the Docs
     - fix a bug in the buy levelup. 
     - animation bars
 
-[] ----
+[23/08/2022] ------------------------------------------------------ []
+
+  Version: 00.01.50
+  Added: 
+    - Show damage (WIP)
+    - hide all the heroes. When you unlock an hero show the next
+  Fixed: 
+  Change: 
+    - Change the enemy from function to Class. 
+      - Create a system that +50% the enemy HP each 5 enemies killed and at the 10+1 will spawn a boss fight +100%(?)
+
+[24/08/2022] ------------------------------------------------------ []
+  
+  Version: 
+  Change: 
+  Added: 
+    - debug > one kill hit
+    - enemy drops gold 
+  Removed: 
+  Todo: 
+    - get a better formula for drop gold.
+
+
+[] ------------------------------------------------------ []
+  
+  Version: 
+  Change: 
+  Added: 
+  Removed: 

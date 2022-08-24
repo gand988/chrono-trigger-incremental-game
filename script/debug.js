@@ -1,7 +1,7 @@
 const dbGold          = document.querySelector('.dbGold');
 const dbGoldInfinite  = document.querySelector('.dbGoldInfinite');
 const unlockAllHeroes = document.querySelector('.unlockAllHeroes');
-
+const oneHitKill      = document.querySelector('.oneHitKill');
 
 
 

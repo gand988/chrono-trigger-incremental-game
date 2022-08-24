@@ -1,6 +1,11 @@
+*,
+*::before, 
+*::after{
+  box-sizing: border-box;
+}
 body{
-  /* background-color: #004369; */
-  background: url(/data/background_01.png);
+  background-color: #004369;
+  /* background: url(/data/bgc.jpg); */
   color: #E5DDC8; 
   font-family: 'Lato', sans-serif;
 }
@@ -47,11 +52,42 @@ main{
   width: 70%; 
 }
 .zoneClass{
+  position: relative;
   padding: 5px;
   border: 2px solid #01949A;
-  margin-bottom: 10px;  
+  margin-bottom: 10px;
 }
+.damageShow{
+  position: absolute;
+  display: none; 
+  font-size: 30px;
+  top: 50%;
+  left: 50%;
 
+  background-color: cyan;
+  color: black;
+  transform: translate(-50%,-50%);
+  animation: dmgAnimation 3s infinite;
+}
+/* .damageShow::after{
+  top: 50%;
+  left: 50%;
+  content: "";
+} */
+@keyframes dmgAnimation {
+  0%{
+    top: 50%;
+    left: 50%;
+    /* opacity: 100%; */
+  }
+  100%{
+    /* font-size: 0px; */
+    /* opacity: 0; */
+    transform: translate(0,0);
+    top: 0;
+    left: 95%;
+  }
+}
 .enemyPicture{
   border: 1px solid red; 
   width: 100px; 
@@ -63,11 +99,14 @@ main{
 
 .hero{
   position: relative; 
-  border: 1px solid #f7a400;
+  /* border: 1px solid #f7a400; */
   margin-bottom: 5px;
   padding-left: 10px;
+  background-color: #606871;
 }
-
+.hero:nth-of-type(1n+2){
+  display: none; 
+}
 .portrait{
   display: flex; 
   flex-direction: row;
