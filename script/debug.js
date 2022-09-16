@@ -18,3 +18,4 @@ dbGold.addEventListener('click', ()=>{
 dbGoldInfinite.addEventListener('click', ()=>{
   player.goldCollected += 100**6;
 })
+

@@ -1,13 +1,30 @@
 *,
-*::before, 
-*::after{
-  box-sizing: border-box;
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 body{
   background-color: #004369;
   /* background: url(/data/bgc.jpg); */
   color: #E5DDC8; 
   font-family: 'Lato', sans-serif;
+  /* font-family: 'Press Start 2P', cursive; */
+}
+.brd{
+  background-color: #757a7d;
+  border-top: 2px solid #fafbfd;
+  border-left: 2px solid #a9aaae;
+}
+.brd::after{
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 100%; 
+  top: 0; 
+  left: 0; 
+  border: 3px solid #4a4e51; 
 }
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
@@ -99,11 +116,11 @@ main{
 
 .hero{
   position: relative; 
-  /* border: 1px solid #f7a400; */
   margin-bottom: 5px;
   padding-left: 10px;
-  background-color: #606871;
+
 }
+
 .hero:nth-of-type(1n+2){
   display: none; 
 }
@@ -124,7 +141,7 @@ main{
 
 .enemyHpC{
   position: relative;
-  border: 2px solid black; 
+  border: 2px solid #000; 
   width: 200px;
 }
 p.enemyHpData{
@@ -167,7 +184,11 @@ p.enemyHpData{
   z-index: 9;
 }
 
+/* FOOTER */
 
+footer i{
+  color: white; 
+}
 /* debug */
 
 .debug{

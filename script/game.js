@@ -244,19 +244,19 @@ for(let i=0; i<heroes.length; i++){
 //   this.gold   = gold; 
 // }
 
-// TODO  fix the heroes to class + 
-const enemyList = [
-  'Blue Eaglet', 
-  'Green Imp',
-  'Roundillo', 
-  'Roundillo Rider',
-  'Blue Eaglet', 
-  'Green Imp',
-  'Blue Eaglet', 
-  'Green Imp',
-  'Roundillo', 
-  'Roundillo Rider'
-];
+// // TODO  fix the heroes to class + 
+// const enemyList = [
+//   'Blue Eaglet', 
+//   'Green Imp',
+//   'Roundillo', 
+//   'Roundillo Rider',
+//   'Blue Eaglet', 
+//   'Green Imp',
+//   'Blue Eaglet', 
+//   'Green Imp',
+//   'Roundillo', 
+//   'Roundillo Rider'
+// ];
 /**
  * Enemy 
  * 
