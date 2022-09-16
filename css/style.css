@@ -12,10 +12,11 @@ body{
   font-family: 'Lato', sans-serif;
   /* font-family: 'Press Start 2P', cursive; */
 }
-.brd{
+/* .brd{
   background-color: #757a7d;
   border-top: 2px solid #fafbfd;
   border-left: 2px solid #a9aaae;
+  z-index: -1;
 }
 .brd::after{
   position: absolute;
@@ -25,7 +26,8 @@ body{
   top: 0; 
   left: 0; 
   border: 3px solid #4a4e51; 
-}
+  z-index: -1;
+} */
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
@@ -105,13 +107,21 @@ main{
     left: 95%;
   }
 }
+.clickButton{
+  border: 1px solid #000;
+  height: 100px;
+  width: 100px;
+}
 .enemyPicture{
-  border: 1px solid red; 
-  width: 100px; 
-  height: 100px; 
-  background: url(/data/azala1.png) 0 0;
+  position: relative; 
+  /* border: 1px solid red;  */
+  /* border: 1px solid red;  */
+  width: 100%; 
+  height: 100%; 
+  /* background-color: red; */
+  background-size: contain;
   background-repeat: no-repeat;
-  background-size: cover;
+  /* background-repeat: no-repeat; */
 }
 
 .hero{
@@ -131,12 +141,12 @@ main{
 .heroPicture{
   width: 100px; 
   height: 100px; 
-
 }
 .unlockButton{
   position: absolute;   
   right: 10px;
   top: 10px;  
+  z-index: 9;
 }
 
 .enemyHpC{

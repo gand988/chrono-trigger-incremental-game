@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="images/fav.png">
   <script src="https://kit.fontawesome.com/c7f9e161f0.js" crossorigin="anonymous"></script>
   <!-- <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> -->
   <title>Click!</title>
@@ -21,7 +22,7 @@
         <div class="hero brd">
           <button class="unlockButton" disabled>Unlock</button>
           <div class="portrait">
-            <img src="data/portrait_crono.jpg" class="heroPicture"></img>
+            <img class="heroPicture"></img>
             <span class="portraitData">
               <p class="heroName"> - </p>
               <p class="heroesLvlText" >Level: -</p>
@@ -35,7 +36,7 @@
         <div class="hero brd">
           <button class="unlockButton" disabled>Unlock</button>
           <div class="portrait">
-            <img src="data/portrait_lucca.png" class="heroPicture"></img>
+            <img class="heroPicture"></img>
             <span class="portraitData">
               <p class="heroName"> - </p>
               <p class="heroesLvlText" >Level: -</p>
@@ -49,7 +50,7 @@
         <div class="hero brd">
           <button class="unlockButton" disabled>Unlock</button>
           <div class="portrait">
-            <img src="data/portrait_marle.png" class="heroPicture"></img>
+            <img class="heroPicture"></img>
             <span class="portraitData">
               <p class="heroName"> - </p>
               <p class="heroesLvlText" >Level: -</p>
@@ -63,7 +64,7 @@
         <div class="hero brd">
           <button class="unlockButton" disabled>Unlock</button>
           <div class="portrait">
-            <img src="data/portrait_frog.png" class="heroPicture"></img>
+            <img class="heroPicture"></img>
             <span class="portraitData">
               <p class="heroName"> - </p>
               <p class="heroesLvlText" >Level: -</p>
@@ -77,7 +78,7 @@
         <div class="hero brd">
           <button class="unlockButton" disabled>Unlock</button>
           <div class="portrait">
-            <img src="data/portrait_robo.png" class="heroPicture"></img>
+            <img class="heroPicture"></img>
             <span class="portraitData">
               <p class="heroName"> - </p>
               <p class="heroesLvlText" >Level: -</p>
@@ -91,7 +92,7 @@
         <div class="hero brd">
           <button class="unlockButton" disabled>Unlock</button>
           <div class="portrait">
-            <img src="data/portrait_ayla.png" class="heroPicture"></img>
+            <img class="heroPicture"></img>
             <span class="portraitData">
               <p class="heroName"> - </p>
               <p class="heroesLvlText" >Level: -</p>
@@ -105,7 +106,7 @@
         <div class="hero brd">
           <button class="unlockButton" disabled>Unlock</button>
           <div class="portrait">
-            <img src="data/portrait_magus.png" class="heroPicture"></img>
+            <img class="heroPicture"></img>
             <span class="portraitData">
               <p class="heroName"> - </p>
               <p class="heroesLvlText" >Level: -</p>
@@ -119,7 +120,7 @@
         <div class="hero brd">
           <button class="unlockButton" disabled>Unlock</button>
           <div class="portrait">
-            <img src="data/portrait_magus.png" class="heroPicture"></img>
+            <img class="heroPicture"></img>
             <span class="portraitData">
               <p class="heroName"> - </p>
               <p class="heroesLvlText" >Level: -</p>
@@ -133,7 +134,7 @@
         <div class="hero brd">
           <button class="unlockButton" disabled>Unlock</button>
           <div class="portrait">
-            <img src="data/portrait_crono.jpg" class="heroPicture"></img>
+            <img class="heroPicture"></img>
             <span class="portraitData">
               <p class="heroName"> - </p>
               <p class="heroesLvlText" >Level: -</p>
@@ -147,7 +148,7 @@
         <div class="hero brd">
           <button class="unlockButton" disabled>Unlock</button>
           <div class="portrait">
-            <img src="data/portrait_crono.jpg" class="heroPicture"></img>
+            <img class="heroPicture"></img>
             <span class="portraitData">
               <p class="heroName"> - </p>
               <p class="heroesLvlText" >Level: -</p>
@@ -161,7 +162,21 @@
         <div class="hero brd">
           <button class="unlockButton" disabled>Unlock</button>
           <div class="portrait">
-            <img src="data/portrait_crono.jpg" class="heroPicture"></img>
+            <img class="heroPicture"></img>
+            <span class="portraitData">
+              <p class="heroName"> - </p>
+              <p class="heroesLvlText" >Level: -</p>
+              <span class="heroGold">Gold: - </span>
+              <button class="heroLvlUp" disabled>lvlup</button>
+              <p class="heroDps">Dps: -</p>
+            </span>
+          </div>
+        </div>
+        <!-- HERO SECTION -->
+        <div class="hero brd">
+          <button class="unlockButton" disabled>Unlock</button>
+          <div class="portrait">
+            <img class="heroPicture"></img>
             <span class="portraitData">
               <p class="heroName"> - </p>
               <p class="heroesLvlText" >Level: -</p>
@@ -181,9 +196,13 @@
         <!-- ################## enemy screen -->
         <div class="enemyZone zoneClass">
           <div class="enm">
+            <p class="areaName">-</p>
             <p class="areaLevel">-</p>
             <span class="damageShow"></span>
-            <div div class="enemyPicture clickButton"></div>
+            <div class=" clickButton">
+            <!-- <div class="enemyPicture clickButton"> -->
+              <img class="enemyPicture"></img>
+            </div>
             <p class="enemyName">-</p>
           </div>
           <div class="enemyHpC">
@@ -201,6 +220,7 @@
             <li class="infoDps">Current DPS: - </li>
             <li class="infoGold">Current Gold: - </li>
             <li class="infoKill">Current Kills: - </li>
+            <!-- <li class="infoTime">Current Time Played: - </li> -->
           </ul>
         </section>
       </section>
@@ -220,7 +240,7 @@
   <footer>
     <span>Create by Matteo 'Gand988' Zanda - <a href="https://gand988.github.io/portfolio/"><i class="fa-solid fa-globe"></i></a></span>
     <a href="https://github.com/gand988/chrono-trigger-incremental-game"><i class="fa-brands fa-github"></i></a>
-    <p>Version: 00.00.10 - <span class="openModalChangelog">changelog</span></p>
+    <p>Version: 1.0.0 - <span class="openModalChangelog">changelog</span></p>
     
   </footer>
   <section class="changelogModal">
@@ -228,7 +248,9 @@
     <iframe src="changelog.html" frameborder="0" class="changelogMain"></iframe>
   </section>
   <script src="https://kit.fontawesome.com/c7f9e161f0.js" crossorigin="anonymous"></script>
-  <script src="script/enemydb.js"></script>
+  <!-- <script src="script/enemydb.js"></script> -->
+  <script src="script/dbHeroes.js"></script>
+  <script src="script/dbEnemy.js"></script>
   <script src="script/script.js"></script>
   <script src="script/game.js"></script>
   <script src="script/debug.js"></script>
