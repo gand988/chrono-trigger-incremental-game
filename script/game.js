@@ -1,7 +1,7 @@
 /*
   Title         > Chrono Trigger : The incremental game. 
   Author        > Matteo 'Gand988' Zanda
-  Current Ver.  > 00.01.50
+  Current Ver.  > 1.0.0
 */
 
 // DOM > initialize enemy picture 
@@ -16,7 +16,6 @@ const infoGold      = document.querySelector('.infoGold');        // text conten
 const infoKill      = document.querySelector('.infoKill');        // text content
 const damageShow    = document.querySelector('.damageShow');      // the damage to the enemy
 // DOM > initialize heroes stuff
-// const heroPicture   = document.querySelectorAll('.heroPicture');  // text content
 const hero          = document.querySelectorAll('.hero'); 
 const heroPicture   = document.querySelectorAll('.heroPicture'); 
 const heroName      = document.querySelectorAll('.heroName');     // text content
@@ -26,7 +25,7 @@ const heroesLvlText = document.querySelectorAll('.heroesLvlText');// text conten
 const heroLvlUp     = document.querySelectorAll('.heroLvlUp');    // button
 const unlockButton  = document.querySelectorAll('.unlockButton'); // button
 // DOM > initialize enemy stuff
-const areaName      = document.querySelector('.areaName');       // text content
+const areaName      = document.querySelector('.areaName');        // text content
 const areaLevel     = document.querySelector('.areaLevel');       // text content
 const enemyName     = document.querySelector('.enemyName');       // text content
 const enemyHpData   = document.querySelector('.enemyHpData');     // text content
@@ -60,12 +59,10 @@ let player = {
  * 
  * 
  */
-for(let i= 0; i<heroes.length; i++){
+for(let i= 0; i < heroes.length; i++){
   heroLvlUp[i].addEventListener('click', ()=>{
     if(heroes[i].active && player.goldCollected >= heroes[i].lvlUpGold){
       heroLvlUpF(i);
-      // console.log(`${heroes[i].hero} Level UP`);
-      // console.log(`Level: ${heroes[i].lvl} || DPS: ${heroes[i].dps * heroes[i].lvl} || Gold for next lvl: ${heroes[i].lvlUpGold()}`);
     }
   })
   // heroes stuff
@@ -89,6 +86,7 @@ function unlockHero(id){
   heroes[id].active = true; 
   heroLvlUp[id].disabled = false; 
   if((id+1) < heroes.length){
+    if(hero[id+1]){}
     hero[id+1].style.display = 'block'; // fixme - need to make an if, because there are no more heroes and line 95 give error on console. @low
   }
   player.goldCollected -= heroes[id].goldToUnlock; 
