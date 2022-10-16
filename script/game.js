@@ -181,7 +181,13 @@ function updateAreaLevel(){
  */
 function updateEnemyArea(){
   let temp1 = enemy.name; 
-  let temp2 = enemyList[areaLevelCounter][0]; 
+  let temp2; 
+  if(areaLevelCounter >= enemyList.length){
+    // this is for infinite game. 
+    temp2 = enemyList[enemyList.length-1][0];
+  }else{
+    temp2 = enemyList[areaLevelCounter][0]
+  }
   temp1 = temp1.replaceAll('_', ' '); 
   temp2 = temp2.replaceAll('_', ' '); 
   areaName.textContent    = `Area ${areaLevelCounter+1} : ${temp2}`;

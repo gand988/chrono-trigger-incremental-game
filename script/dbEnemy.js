@@ -7,6 +7,7 @@ const enemyList =
   ["Guardia_Forest_(Present)","Gilded_Bellbird","Scarab","Amanita","Gilded_Bellbird","Scarab","Amanita","Gilded_Bellbird","Scarab","Amanita","Amanita","Gilded_Bellbird"],
 ];
 
+
 /**
  * 
  * 
@@ -30,8 +31,14 @@ const enemyList =
 
   name(){
     let random = Math.floor(Math.random()*10)+1;
-    return enemyList[this.areaLevelCounter][random]; 
+    if(this.areaLevelCounter < enemyList.length){
+      return enemyList[this.areaLevelCounter][random]; 
+    }else{
+      // this is for infinite game.
+      return enemyList[enemyList.length-1][random];
+    }
   }
+
   calcHp(){
     let baseHp; 
     if(this.bossFlag){
@@ -56,6 +63,11 @@ const enemyList =
   }
   
   sprite(){
-    return `/images/${enemyList[this.areaLevelCounter][0]}/${this.name}.webp`;
+    if(this.areaLevelCounter < enemyList.length){
+      return `/images/${enemyList[this.areaLevelCounter][0]}/${this.name}.webp`;
+    }else{
+      // this is for infinite game.
+      return `/images/${enemyList[enemyList.length-1][0]}/${this.name}.webp`;
+    }
   }
 };

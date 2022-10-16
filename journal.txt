@@ -74,6 +74,24 @@ function/variable it will popup the Docs
   Todo: 
     - get a better formula for drop gold.
 
+[17/09/2022] ------------------------------------------------------ []
+  
+  Version: 1.0.0 - The more stuff release
+  Change: change the version counter
+  Added: 
+    + added area from 1 to 5 with boss fight, area name, enemy name and sprite. 
+    + new formula picked from "Clicker heroes" wikia for enemy hp, basecost, dps and gold
+    + new code for enemy and heroes generator. 
+  Removed: 
+
+[19/09/2022] ------------------------------------------------------ []
+  
+  Version: 1.0.0
+  Change: 
+    + added some CSS code in the heroes area, body background, some text shadow.
+  Added: 
+  Removed: 
+
 
 [] ------------------------------------------------------ []
   

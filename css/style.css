@@ -5,6 +5,7 @@
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+
 body{
   /* background-color: #004369; */
   /* background: url(/data/bgc.jpg); */
@@ -12,6 +13,7 @@ body{
   font-family: 'Lato', sans-serif;
   /* font-family: 'Press Start 2P', cursive; */
   background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.0)), url('../images/background_2.png');
+  background-repeat: no-repeat;
   text-shadow: 2px 2px 3px black;
 }
 /* ===== Scrollbar CSS ===== */
