@@ -17,7 +17,7 @@ const enemyList =
  class Enemy{
   
   constructor(hp, areaLevelCounter, bossFlag, level, internalCounter){
-    this.areaLevelCounter     = areaLevelCounter;
+    this.areaLevelCounter = areaLevelCounter;
     this.name     = this.name();
     // this.hp       = hp;
     // this.hpMax    = hp;

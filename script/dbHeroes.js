@@ -9,37 +9,37 @@ let heroList = [
     }
   },
   {
-    name: 'Crono', baseCost: 5, basedps: 0
+    name: 'Crono', baseCost: 20, basedps: 5
   },
   {
-    name: 'Lucca', baseCost: 20, basedps: 5
+    name: 'Lucca', baseCost: 250, basedps: 22
   },
   {
-    name: 'Marle', baseCost: 250, basedps: 22
+    name: 'Marle', baseCost: 1000, basedps: 74
   },
   {
-    name: 'Frog', baseCost: 1000,basedps: 74
+    name: 'Frog', baseCost: 4000,basedps: 245
   },
   {
-    name: 'Robo', baseCost: 4000,basedps: 245
+    name: 'Robo', baseCost: 20000,basedps: 976
   },
   {
-    name: 'Ayla', baseCost: 20000,basedps: 976
+    name: 'Ayla', baseCost: 100000,basedps: 3725
   },
   {
-    name: 'Magus', baseCost: 100000,basedps: 3725
+    name: 'Magus', baseCost: 400000,basedps: 10859
   },
   {
-    name: 'Spekkio', baseCost: 400000,basedps: 10859
+    name: 'Spekkio', baseCost: 2500000,basedps: 47143
   },
   {
-    name: 'Schala', baseCost: 2500000,basedps: 47143
+    name: 'Schala', baseCost: 15000000,basedps: 186900
   },
   {
-    name: 'Melchior', baseCost: 15000000,basedps: 186900
+    name: 'Melchior', baseCost: 100000000,basedps: 782000
   },
   {
-    name: 'Gaspar', baseCost: 100000000,basedps: 782000
+    name: 'Tata', baseCost: 800000000,basedps: 3721000
   }
 ]; 
 

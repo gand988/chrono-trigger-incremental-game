@@ -92,6 +92,15 @@ function/variable it will popup the Docs
   Added: 
   Removed: 
 
+[16/10/2022] ------------------------------------------------------ []
+  
+  Version: 1.0.0
+  Change: 
+  Added: 
+    + add endless gaming - Repeat the last area endlessly
+    + add link to the online version
+  Removed: 
+
 
 [] ------------------------------------------------------ []
   

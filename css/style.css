@@ -12,9 +12,16 @@ body{
   color: #E5DDC8; 
   font-family: 'Lato', sans-serif;
   /* font-family: 'Press Start 2P', cursive; */
-  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.0)), url('../images/background_2.png');
+  background-size: cover;
   background-repeat: no-repeat;
   text-shadow: 2px 2px 3px black;
+  background-color: #282828;
+}
+.lightMode{
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.0)), url('../images/background_2.png');
+}
+.darkMode{
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.0)), url('../images/background_2_dark.png');
 }
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
@@ -66,6 +73,12 @@ main{
   border: 2px solid #01949A;
   margin-bottom: 10px;
 }
+.enemyZone{
+  display: flex; 
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: center;
+}
 .damageShow{
   position: absolute;
   display: none; 
@@ -101,7 +114,10 @@ main{
   border: 1px solid #000;
   height: 100px;
   width: 100px;
+  /* -webkit-box-shadow: 0px 30px 18px 15px #000000; 
+box-shadow: 0px 30px 18px 15px #000000; */
 }
+
 .enemyPicture{
   position: relative; 
   /* border: 1px solid red;  */
@@ -118,10 +134,10 @@ main{
 .hero{
   position: relative; 
   border: 3px solid #585050; 
-  border-top: 3px solid #f8f8c8; 
+  /* border-top: 3px solid #f8f8c8; 
   border-right: 3px solid #f8d098; 
   border-bottom: 3px solid #e09868; 
-  border-left: 3px solid #f8d098; 
+  border-left: 3px solid #f8d098;  */
   background-color: #181048;
 }
 
@@ -132,11 +148,40 @@ main{
 .portrait{
   display: flex; 
   flex-direction: row;
+  align-items: center;
+}
+.heroPictureTest{
+  position: relative; 
+  border: 3px solid #0000
 }
 .heroPicture{
+  display: block; 
   width: 100px; 
   height: 100px; 
-  border: 2px solid #c8c8d0;
+}
+[data-status="lvlup"]{
+  border-top: 3px solid #f8f8c8; 
+  border-left: 3px solid #f8d098; 
+  border-right: 3px solid #f8d098; 
+  border-bottom: 3px solid #e09868; 
+}
+.heroPictureTest[data-status="lvlup"]::after{
+  position: absolute;
+  /* display: block;  */
+  top: -.7rem; 
+  /* right: -1.123rem; */
+  left: -0.123rem;
+  /* width: 299px; */
+  /* height: 300px; */
+  /* border: 1px solid red;  */
+  content: "LvlUp";
+  /* padding: 1px;  */
+  font-size: .90rem;
+  /* width: 50px;  */
+  /* height: 40px;  */
+  color: red; 
+  /* background-color: red; */
+  /* z-index: 200000; */
 }
 .unlockButton{
   position: absolute;   
@@ -193,7 +238,22 @@ p.enemyHpData{
 }
 
 /* FOOTER */
-
+footer{
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  background-color: #181048;
+  font-size: .875rem;
+}
+footer div {
+  display: flex;
+  justify-content: center;
+  padding: 0; 
+  margin: 0; 
+}
+footer a{
+  color: #E5DDC8;
+}
 footer i{
   color: white; 
 }
@@ -218,4 +278,9 @@ footer i{
 .stats{
   background: rgb(0,0,0);
   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(34,193,195,0) 100%);
+}
+
+
+[data-disable='true']{
+  display: none;
 }

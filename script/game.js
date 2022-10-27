@@ -17,6 +17,7 @@ const infoKill      = document.querySelector('.infoKill');        // text conten
 const damageShow    = document.querySelector('.damageShow');      // the damage to the enemy
 // DOM > initialize heroes stuff
 const hero          = document.querySelectorAll('.hero'); 
+const borderLvlUp   = document.querySelectorAll('.heroPictureTest'); 
 const heroPicture   = document.querySelectorAll('.heroPicture'); 
 const heroName      = document.querySelectorAll('.heroName');     // text content
 const heroGold      = document.querySelectorAll('.heroGold');     // Gold to levelup
@@ -37,9 +38,9 @@ let   widthPer      = 100;        // width background animation bar enemy hp
 
 /* 
   All the stats are here
-  lvl              // TODO : level will change when exp goal will be completed
-  exp              // TODO : need an exp formula 
-  clickDamage      // TODO : find a way to increase the click damage 
+  lvl              // * TODO : level will change when exp goal will be completed
+  exp              // * TODO : need an exp formula 
+  clickDamage      // * TODO : find a way to increase the click damage 
   dps              // all active heroes dps will add here
   goldCollected    // gold dropped from enemies
   killCount        // after each kill add +1
@@ -60,19 +61,21 @@ let player = {
  * 
  */
 for(let i= 0; i < heroes.length; i++){
-  heroLvlUp[i].addEventListener('click', ()=>{
+  heroPicture[i].addEventListener('click', ()=>{
     if(heroes[i].active && player.goldCollected >= heroes[i].lvlUpGold){
+      // console.log('testing');
       heroLvlUpF(i);
     }
   })
   // heroes stuff
-  heroName[i].textContent        = `${heroes[i].hero}`; 
+  heroName[i].textContent = `${heroes[i].hero}`; 
 }
 
 function heroLvlUpF(id){
   if(heroes[id].active){
     player.goldCollected -= heroes[id].lvlUpGold;
     heroes[id].lvl++; 
+    borderLvlUp[id].dataset.status = '';
     player.dps += heroes[id].dps;
     updateHeroes(id);
   }
@@ -84,7 +87,7 @@ function heroLvlUpF(id){
 
 function unlockHero(id){
   heroes[id].active = true; 
-  heroLvlUp[id].disabled = false; 
+  // heroLvlUp[id].disabled = false; 
   if((id+1) < heroes.length){
     if(hero[id+1]){}
     hero[id+1].style.display = 'block'; // fixme - need to make an if, because there are no more heroes and line 95 give error on console. @low
@@ -101,6 +104,7 @@ function updateHeroes(id){
   heroesLvlText[id].textContent   = `Level: ${heroes[id].lvl}`;
   heroGold[id].textContent        = `Gold:  ${heroes[id].lvlUpGold}`; 
   heroDps[id].textContent         = `Dps:   ${heroes[id].dps * heroes[id].lvl}`;
+
 }
 
 for(let i=0; i<heroes.length; i++){
@@ -108,7 +112,8 @@ for(let i=0; i<heroes.length; i++){
   unlockButton[i].addEventListener('click', ()=>{
     unlockHero(i);
   })
-  heroPicture[i].src = `images/character/${heroes[i].hero}.webp`
+  // heroPicture[i].src = `images/character/${heroes[i].hero}.webp`
+  heroPicture[i].src = `images/char/${heroes[i].hero}.png`
 }
 
 
@@ -150,16 +155,33 @@ function newEnemy(){
   enemyPicture.src = `${enemy.sprite}`    // show on screen the enemy sprite
 }
 
+function checkForLevelUp(){
+  for(let i= 0; i < heroes.length; i++){
+    // heroLvlUp[i].addEventListener('click', ()=>{
+      if(heroes[i].active && player.goldCollected >= heroes[i].lvlUpGold){
+        // console.log('testing');
+        // heroLvlUpF(i);
+        borderLvlUp[i].dataset.status = 'lvlup';
+      }else if(heroes[i].active && player.goldCollected < heroes[i].lvlUpGold){
+        borderLvlUp[i].dataset.status = '';
+      }
+    // })
+    // heroes stuff
+    // heroName[i].textContent = `${heroes[i].hero}`; 
+  }
+}
+
 /**
  * Update most of the information on screen
  */
 function updateStats(){
-  infoLevel.textContent   = `Current level:         ${player.lvl}`;
-  infoExp.textContent     = `Current exp:           ${player.exp}`;
+  // infoLevel.textContent   = `Current level:         ${player.lvl}`;
+  // infoExp.textContent     = `Current exp:           ${player.exp}`;
   infoDamage.textContent  = `Current click damage:  ${player.clickDamage()}`;
   infoDps.textContent     = `Current DPS:           ${player.dps}`;
   infoGold.textContent    = `Current Gold:          ${player.goldCollected}`;
   infoKill.textContent    = `Current Kills:         ${player.killCount}`;
+  checkForLevelUp(); 
 }
 
 /**
@@ -222,8 +244,15 @@ function updateElements(){
     updateEnemyArea();
     updateAreaLevel();
     checkForEnableHeroes();
-    
     updateAnimationBar()
+    // ! error here 
+    // for(let i = 0; i<heroes.length; i++){
+    //   if(heroes[i].active && player.goldCollected >= heroes[i].lvlUpGold){
+    //     borderLvlUp[i].dataset.status = 'lvlup';
+    //   }else{
+    //     borderLvlUp[i].dataset.status = '';
+    //   }
+    // }
     if(enemy.hp <=0){
       newEnemy();
       widthPer = 100; 
